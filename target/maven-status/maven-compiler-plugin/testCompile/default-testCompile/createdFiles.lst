@@ -1,0 +1,3 @@
+com/qa/opencart/base/BaseTest.class
+com/qa/opencart/tests/LoginPageTest.class
+com/qa/opencart/tests/HomePageTest.class
