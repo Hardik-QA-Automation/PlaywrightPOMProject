@@ -59,12 +59,20 @@
 				<version>3.2.5</version>
 
 				<configuration>
-					<forkCount>2.5C</forkCount>
-					<reuseForks>true</reuseForks>
+
+					<useModulePath>false</useModulePath>
+
 					<suiteXmlFiles>
 						<suiteXmlFile>
-							src/test/resources/testrunners/testng_regressions.xml</suiteXmlFile>
+							src/test/resources/testrunners/testng_regressions.xml
+						</suiteXmlFile>
 					</suiteXmlFiles>
+
+					<!-- IMPORTANT FIX: ensures TestNG is detected -->
+					<dependenciesToScan>
+						<dependency>org.testng:testng</dependency>
+					</dependenciesToScan>
+
 				</configuration>
 
 			</plugin>
