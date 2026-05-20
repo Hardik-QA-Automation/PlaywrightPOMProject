@@ -3,7 +3,7 @@ pipeline
     agent any
     
     tools{
-    	maven 'maven'
+    	maven 'MAVEN_HOME'
         }
 
     stages 
@@ -26,7 +26,7 @@ pipeline
         }
         
         
-        
+        	
         stage("Deploy to QA"){
             steps{
                 echo("deploy to qa")
