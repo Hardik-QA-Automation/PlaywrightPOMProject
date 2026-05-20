@@ -3,6 +3,7 @@ package com.qa.opencart.factory;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.Properties;
@@ -41,12 +42,14 @@ public class PlaywrightFactory {
 
 	public Page initBrowser(Properties prop) {
 
+		this.prop = prop;
+
 		String browserName = prop.getProperty("browser").trim();
 
 		System.out.println("Browser name is: " + browserName);
 
-		tlPlaywright.set(Playwright.create());
-		Playwright playwright = tlPlaywright.get();
+		Playwright playwright = Playwright.create();
+		tlPlaywright.set(playwright);
 
 		switch (browserName.toLowerCase()) {
 		case "chromium":
@@ -71,14 +74,20 @@ public class PlaywrightFactory {
 			break;
 
 		default:
-//			System.out.println("Please pass the wright browser name.....");
-			break;
+			throw new RuntimeException("Invalid browser name: " + browserName);
 		}
 
-		tlBrowserContext.set(getBrowser().newContext());
-		tlPage.set(getBrowserContext().newPage());
-		getPage().navigate(prop.getProperty("url"));
-		return getPage();
+		tlBrowser.set(getBrowser());
+
+		BrowserContext context = getBrowser().newContext();
+		tlBrowserContext.set(context);
+
+		Page page = context.newPage();
+		tlPage.set(page);
+
+		page.navigate(prop.getProperty("url"));
+
+		return page;
 
 	}
 
@@ -93,28 +102,48 @@ public class PlaywrightFactory {
 			prop = new Properties();
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			throw new RuntimeException("config.properties not found");
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Failed to load config.properties");
 		}
 
 		return prop;
 	}
 
 	public static String takeScreenshot() {
-		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
+		Page page = getPage();
 
+		if (page == null) {
+			System.out.println("Page is null - skipping screenshot");
+			return "";
+		}
 		try {
-			byte[] screenshot = getPage()
-					.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
+			String folder = System.getProperty("user.dir") + "/screenshot";
+			Files.createDirectories(Paths.get(folder));
 
+			byte[] screenshot = page.screenshot(new Page.ScreenshotOptions()
+					.setPath(Paths.get(folder + "/" + System.currentTimeMillis() + ".png")).setFullPage(true));
 			return Base64.getEncoder().encodeToString(screenshot);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "";
 		}
+	}
 
+	public static void cleanup() {
+		try {
+			if (getPage() != null)
+				getPage().close();
+			if (getBrowserContext() != null)
+				getBrowserContext().close();
+			if (getBrowser() != null)
+				getBrowser().close();
+			if (getPlaywright() != null)
+				getPlaywright().close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

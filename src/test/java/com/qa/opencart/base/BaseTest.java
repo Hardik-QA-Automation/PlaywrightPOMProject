@@ -13,8 +13,8 @@ import com.qa.opencart.pages.LoginPage;
 
 public class BaseTest {
 
-	PlaywrightFactory pf;
-	Page page;
+	protected PlaywrightFactory pf;
+	protected Page page;
 	protected Properties prop;
 
 	protected HomePage homePage;
@@ -28,19 +28,37 @@ public class BaseTest {
 
 		prop = pf.init_prop();
 
-		if (browserName != null) {
+		if (browserName != null && !browserName.isEmpty()) {
 			prop.setProperty("browser", browserName);
 		}
 
 		page = pf.initBrowser(prop);
-		homePage = new HomePage(PlaywrightFactory.getPage());
+		homePage = new HomePage(page);
 
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-		PlaywrightFactory.getPage().close();
-		PlaywrightFactory.getBrowser().close();
-		PlaywrightFactory.getPlaywright().close();
+
+		try {
+			if (PlaywrightFactory.getPage() != null) {
+				PlaywrightFactory.getPage().close();
+			}
+
+			if (PlaywrightFactory.getBrowserContext() != null) {
+				PlaywrightFactory.getBrowserContext().close();
+			}
+
+			if (PlaywrightFactory.getBrowser() != null) {
+				PlaywrightFactory.getBrowser().close();
+			}
+
+			if (PlaywrightFactory.getPlaywright() != null) {
+				PlaywrightFactory.getPlaywright().close();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
