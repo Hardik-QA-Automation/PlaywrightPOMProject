@@ -27,17 +27,22 @@ pipeline
         
         	
         stage('Regression Automation Test') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-
-                    dir('PlaywrightPOMProject') {
-                        git 'https://github.com/Hardik-QA-Automation/PlaywrightPOMProject'
-
-                        sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regressions.xml"
-                    }
-                }
-            }
-        }
+		    steps {
+		        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+		
+		            dir('PlaywrightPOMProject') {
+		
+		                git branch: 'main',
+		                    url: 'https://github.com/Hardik-QA-Automation/PlaywrightPOMProject'
+		
+		                sh """
+		                mvn clean test \
+		                -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regressions.xml
+		                """
+		            }
+		        }
+		    }
+		}
         
         
         stage('Publish Extent Report'){
