@@ -8,37 +8,33 @@ pipeline
 
     stages 
     {
-        stage('Build') 
-        {
-            steps
-            {
-                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
+        stage('Build') {
+            steps {
+                dir('build-project') {
+                    git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                    sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                }
             }
-            post 
-            {
-                success
-                {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
+
+            post {
+                success {
+                    junit 'build-project/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts artifacts: 'build-project/target/*.jar'
                 }
             }
         }
         
         
         	
-        stage("Deploy to QA"){
-            steps{
-                echo("deploy to qa")
-            }
-        }
-                
         stage('Regression Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/Hardik-QA-Automation/PlaywrightPOMProject'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regressions.xml"
-                    
+
+                    dir('PlaywrightPOMProject') {
+                        git 'https://github.com/Hardik-QA-Automation/PlaywrightPOMProject'
+
+                        sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regressions.xml"
+                    }
                 }
             }
         }
