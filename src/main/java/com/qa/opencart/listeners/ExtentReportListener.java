@@ -12,7 +12,6 @@ import org.testng.ITestResult;
 
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.qa.opencart.factory.PlaywrightFactory;
 
 import static com.qa.opencart.factory.PlaywrightFactory.takeScreenshot;
 
@@ -54,8 +53,6 @@ public class ExtentReportListener implements ITestListener {
 
 		extent.flush();
 		test.remove();
-
-		PlaywrightFactory.cleanup();
 	}
 
 	@Override

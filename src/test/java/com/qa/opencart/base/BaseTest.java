@@ -39,26 +39,6 @@ public class BaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-
-		try {
-			if (PlaywrightFactory.getPage() != null) {
-				PlaywrightFactory.getPage().close();
-			}
-
-			if (PlaywrightFactory.getBrowserContext() != null) {
-				PlaywrightFactory.getBrowserContext().close();
-			}
-
-			if (PlaywrightFactory.getBrowser() != null) {
-				PlaywrightFactory.getBrowser().close();
-			}
-
-			if (PlaywrightFactory.getPlaywright() != null) {
-				PlaywrightFactory.getPlaywright().close();
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		PlaywrightFactory.cleanup();
 	}
 }

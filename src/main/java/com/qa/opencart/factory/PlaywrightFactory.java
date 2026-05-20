@@ -77,8 +77,6 @@ public class PlaywrightFactory {
 			throw new RuntimeException("Invalid browser name: " + browserName);
 		}
 
-		tlBrowser.set(getBrowser());
-
 		BrowserContext context = getBrowser().newContext();
 		tlBrowserContext.set(context);
 
