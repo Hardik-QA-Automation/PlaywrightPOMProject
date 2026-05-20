@@ -1,4 +1,248 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.46 s -- in TestSuite
+Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 109.0 s <<< FAILURE! -- in TestSuite
+com.qa.opencart.tests.LoginPageTest.setup[firefox](0) -- Time elapsed: 7.113 s <<< FAILURE!
+com.microsoft.playwright.PlaywrightException: 
+Error {
+  message='Connecting to SELENIUM_REMOTE_URL is only supported by Chromium
+  name='Error
+  stack='Error: Connecting to SELENIUM_REMOTE_URL is only supported by Chromium
+    at Firefox._launchWithSeleniumHub (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/browserType.js:254:11)
+    at /private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/browserType.js:63:39
+    at ProgressController.run (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/progress.js:81:23)
+    at Firefox.launch (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/browserType.js:61:38)
+    at BrowserTypeDispatcher.launch (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/dispatchers/browserTypeDispatcher.js:35:40)
+    at BrowserTypeDispatcher._handleCommand (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/dispatchers/dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/dispatchers/dispatcher.js:361:39)
+}
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launchImpl(BrowserTypeImpl.java:50)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.lambda$launch$0(BrowserTypeImpl.java:42)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launch(BrowserTypeImpl.java:42)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launch(BrowserTypeImpl.java:35)
+	at com.qa.opencart.factory.PlaywrightFactory.initBrowser(PlaywrightFactory.java:58)
+	at com.qa.opencart.base.BaseTest.setup(BaseTest.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.microsoft.playwright.impl.DriverException: Error {
+  message='Connecting to SELENIUM_REMOTE_URL is only supported by Chromium
+  name='Error
+  stack='Error: Connecting to SELENIUM_REMOTE_URL is only supported by Chromium
+    at Firefox._launchWithSeleniumHub (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/browserType.js:254:11)
+    at /private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/browserType.js:63:39
+    at ProgressController.run (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/progress.js:81:23)
+    at Firefox.launch (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/browserType.js:61:38)
+    at BrowserTypeDispatcher.launch (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/dispatchers/browserTypeDispatcher.js:35:40)
+    at BrowserTypeDispatcher._handleCommand (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/dispatchers/dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (/private/var/folders/__/kw2v6qw15c31p_kx44t22rzw0000gn/T/playwright-java-15249474234782008706/package/lib/server/dispatchers/dispatcher.js:361:39)
+}
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 28 more
+
+com.qa.opencart.tests.LoginPageTest.setup[edge](0) -- Time elapsed: 101.3 s <<< FAILURE!
+com.microsoft.playwright.PlaywrightException: 
+Error {
+  message='socket hang up
+  name='Error
+  stack='Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:524:23)
+    at Socket.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+}
+Call log:
+- <selenium> connecting to http://localhost:4444/
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launchImpl(BrowserTypeImpl.java:50)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.lambda$launch$0(BrowserTypeImpl.java:42)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launch(BrowserTypeImpl.java:42)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launch(BrowserTypeImpl.java:35)
+	at com.qa.opencart.factory.PlaywrightFactory.initBrowser(PlaywrightFactory.java:70)
+	at com.qa.opencart.base.BaseTest.setup(BaseTest.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.microsoft.playwright.impl.DriverException: Error {
+  message='socket hang up
+  name='Error
+  stack='Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:524:23)
+    at Socket.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+}
+Call log:
+- <selenium> connecting to http://localhost:4444/
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 28 more
+
+com.qa.opencart.tests.HomePageTest.setup[chrome](0) -- Time elapsed: 101.3 s <<< FAILURE!
+com.microsoft.playwright.PlaywrightException: 
+Error {
+  message='socket hang up
+  name='Error
+  stack='Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:524:23)
+    at Socket.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+}
+Call log:
+- <selenium> connecting to http://localhost:4444/
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launchImpl(BrowserTypeImpl.java:50)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.lambda$launch$0(BrowserTypeImpl.java:42)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launch(BrowserTypeImpl.java:42)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launch(BrowserTypeImpl.java:35)
+	at com.qa.opencart.factory.PlaywrightFactory.initBrowser(PlaywrightFactory.java:66)
+	at com.qa.opencart.base.BaseTest.setup(BaseTest.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.microsoft.playwright.impl.DriverException: Error {
+  message='socket hang up
+  name='Error
+  stack='Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:524:23)
+    at Socket.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+}
+Call log:
+- <selenium> connecting to http://localhost:4444/
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 28 more
+
+com.qa.opencart.tests.LoginPageTest.setup[chromium](0) -- Time elapsed: 101.3 s <<< FAILURE!
+com.microsoft.playwright.PlaywrightException: 
+Error {
+  message='socket hang up
+  name='Error
+  stack='Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:524:23)
+    at Socket.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+}
+Call log:
+- <selenium> connecting to http://localhost:4444/
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launchImpl(BrowserTypeImpl.java:50)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.lambda$launch$0(BrowserTypeImpl.java:42)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launch(BrowserTypeImpl.java:42)
+	at com.microsoft.playwright.impl.BrowserTypeImpl.launch(BrowserTypeImpl.java:35)
+	at com.qa.opencart.factory.PlaywrightFactory.initBrowser(PlaywrightFactory.java:54)
+	at com.qa.opencart.base.BaseTest.setup(BaseTest.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.microsoft.playwright.impl.DriverException: Error {
+  message='socket hang up
+  name='Error
+  stack='Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:524:23)
+    at Socket.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+}
+Call log:
+- <selenium> connecting to http://localhost:4444/
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 28 more
+

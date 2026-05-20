@@ -27,5 +27,12 @@
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
+	
+	<test name="Open Cart Login Page Test On Edge">
+		<parameter name='browser' value='edge' />
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageTest" />
+		</classes>
+	</test>
 
 </suite>

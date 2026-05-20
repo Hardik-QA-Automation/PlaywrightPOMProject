@@ -59,6 +59,8 @@
 				<version>3.2.5</version>
 
 				<configuration>
+					<forkCount>2.5C</forkCount>
+					<reuseForks>true</reuseForks>
 					<suiteXmlFiles>
 						<suiteXmlFile>
 							src/test/resources/testrunners/testng_regressions.xml</suiteXmlFile>
