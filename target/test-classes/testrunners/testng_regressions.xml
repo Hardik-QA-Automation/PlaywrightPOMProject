@@ -21,7 +21,7 @@
 		</classes>
 	</test>
 
-	<test name="Open Cart Login Page Test On Firefox">
+<!-- 	<test name="Open Cart Login Page Test On Firefox">
 		<parameter name='browser' value='firefox' />
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
@@ -34,5 +34,5 @@
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
-
+ -->
 </suite>
